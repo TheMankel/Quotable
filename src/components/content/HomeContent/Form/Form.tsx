@@ -1,5 +1,6 @@
 import React, { useRef, useContext } from 'react';
 import { ListContext } from '../../../../store/ListContext';
+import CreateIcon from '../../../icons/CreateIcon';
 import styles from './Form.module.css';
 
 type FormEvent = React.FormEvent<HTMLFormElement>;
@@ -26,9 +27,20 @@ const NewTodo: React.FC = () => {
 
   return (
     <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
-      <label>Enter some text</label>
-      <input type='text' id='text' name='item'></input>
-      <button type='submit'>Create item</button>
+      <div className={styles.inputWrapper}>
+        <input
+          type='text'
+          id='text'
+          name='item'
+          placeholder='Enter text'
+          maxLength={40}
+        />
+      </div>
+      <div className={styles.btnWrapper}>
+        <button type='submit'>
+          <CreateIcon />
+        </button>
+      </div>
     </form>
   );
 };

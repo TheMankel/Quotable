@@ -1,7 +1,48 @@
 .item {
   margin: 1rem 0;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   padding: 1rem;
-  background-color: #ebb002;
+  border-radius: 8px;
+  box-shadow: 0 0 0 0.2rem var(--main-color), 0 0 0 0.4rem var(--main-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.edit,
+.delete {
+  padding: 0.25rem;
   border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  aspect-ratio: 1;
+  border: none;
+}
+
+.edit {
+  background-color: var(--edit-color);
+}
+
+.delete {
+  background-color: var(--delete-color);
+}
+
+.actions svg {
+  height: 40px;
+  width: 40px;
+  fill: white;
 }
