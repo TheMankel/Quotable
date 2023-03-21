@@ -2,10 +2,16 @@
   margin: 1rem 0;
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 0 0 0.2rem var(--main-color), 0 0 0 0.4rem var(--main-color);
+  box-shadow: 0 0 0 0.2rem rgb(var(--main-color)),
+    0 0 0 0.4rem rgb(var(--main-color));
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.item:hover {
+  box-shadow: 0 0 0 0.2rem rgba(var(--main-color), 0.75),
+    0 0 0 0.4rem rgba(var(--main-color), 0.75);
 }
 
 .text {
@@ -34,11 +40,19 @@
 }
 
 .edit {
-  background-color: var(--edit-color);
+  background-color: rgb(var(--edit-color));
+}
+
+.edit:hover {
+  background-color: rgba(var(--edit-color), 0.75);
 }
 
 .delete {
-  background-color: var(--delete-color);
+  background-color: rgb(var(--delete-color));
+}
+
+.delete:hover {
+  background-color: rgba(var(--delete-color), 0.75);
 }
 
 .actions svg {
