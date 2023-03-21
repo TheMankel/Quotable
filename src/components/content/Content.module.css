@@ -1,7 +1,11 @@
-.root {
-  min-height: 100vh;
+.main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: min(10rem, 5vh);
+  align-items: center;
+  /* justify-content: center; */
+  /* gap: min(10rem, 5vh); */
+  padding: 2rem 0;
+  /* 100vh - navbar height - footer height - padding*/
+  min-height: calc(100vh - 62px - 70px - 4rem);
 }
