@@ -1,4 +1,4 @@
-import NotFoundContent from '../components/content/NotFoundContent/NotFoundContent';
+import NotFoundContent from '../components/UI/NotFound/NotFound';
 
 const NotFound = () => {
   return <NotFoundContent />;
