@@ -1,0 +1,18 @@
+.link {
+  text-decoration: none;
+}
+
+.link:visited {
+  color: white;
+}
+
+.link button {
+  background-color: rgb(var(--main-color));
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  font-size: 1.25rem;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
