@@ -25,11 +25,12 @@
 
 .form input:focus {
   outline: none;
-  box-shadow: 0 0 0 0.2rem var(--main-color), 0 0 0 0.4rem var(--main-color);
+  box-shadow: 0 0 0 0.2rem rgba(var(--main-color), 0.75),
+    0 0 0 0.4rem rgba(var(--main-color), 0.75);
 }
 
 .form button {
-  background-color: var(--main-color);
+  background-color: rgb(var(--main-color));
   padding: 0.25rem;
   border-radius: 4px;
   cursor: pointer;
@@ -43,7 +44,7 @@
 
 .form button:hover,
 .form button:active {
-  background-color: var(--main-color);
+  background-color: rgba(var(--main-color), 0.75);
 }
 
 .form button svg {
