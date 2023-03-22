@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
-import Item from '../models/Item';
+import Item from '../types/Item';
 
 type ListContextObject = {
   items: Item[];
@@ -21,7 +21,6 @@ export const ListContext = React.createContext<ListContextObject>({
 });
 
 const ListContextProvider: React.FC<Props> = (props) => {
-  // const [listItems, setListItems] = useState<Item[]>([]);
   const [listItems, setListItems] = useLocalStorage<Item[]>('listItems', []);
 
   const handleCreateItem = (itemText: string) => {
