@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: #ffffff;
-  background-color: var(--bg-primary-color);
+  background-color: rgb(var(--bg-primary-color));
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,8 +19,8 @@
   --edit-color: 15, 98, 73;
   /* --delete-color: rgb(199, 19, 58); */
   --delete-color: 199, 19, 58;
-  --bg-primary-color: #242424;
-  --bg-secondary-color: #303030;
+  --bg-primary-color: 36, 36, 36;
+  --bg-secondary-color: 48, 48, 48;
   --link-color: #186dff;
 }
 
@@ -42,7 +42,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--bg-secondary-color);
+  background-color: rgb(var(--bg-secondary-color));
 }
 
 a {
