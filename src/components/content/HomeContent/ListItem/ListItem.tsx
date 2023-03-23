@@ -5,7 +5,7 @@ import styles from './ListItem.module.css';
 type Props = {
   text: string;
   onDeleteItem: () => void;
-  // onEditItem: () => void;
+  onEditItem: () => void;
 };
 
 const ListItem = (props: Props) => {
@@ -13,7 +13,7 @@ const ListItem = (props: Props) => {
     <li className={styles.item}>
       <p className={styles.text}>{props.text}</p>
       <div className={styles.actions}>
-        <button className={styles.edit}>
+        <button className={styles.edit} onClick={props.onEditItem}>
           <EditIcon />
         </button>
         <button className={styles.delete} onClick={props.onDeleteItem}>
