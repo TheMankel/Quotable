@@ -4,8 +4,12 @@ import CreateIcon from '../../../icons/CreateIcon';
 import styles from './Form.module.css';
 
 type FormEvent = React.FormEvent<HTMLFormElement>;
+type Props = {
+  id?: string;
+  closeHandler: () => void;
+};
 
-const NewTodo: React.FC = () => {
+const Form = ({ id = '', closeHandler }: Props) => {
   const listCtx = useContext(ListContext);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -18,15 +22,23 @@ const NewTodo: React.FC = () => {
 
     if (!target.item.value.trim()) {
       console.log('Provide some data!');
+      target.item.value = '';
       return;
     }
 
-    listCtx.createItem(target.item.value);
+    if (!id) listCtx.createItem(target.item.value);
+    else listCtx.editItem(id, target.item.value);
+
     target.item.value = '';
+    closeHandler();
   };
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
+    <form
+      id='form'
+      ref={formRef}
+      onSubmit={handleSubmit}
+      className={styles.form}>
       <div className={styles.inputWrapper}>
         <input
           type='text'
@@ -37,7 +49,7 @@ const NewTodo: React.FC = () => {
         />
       </div>
       <div className={styles.btnWrapper}>
-        <button type='submit'>
+        <button form='form' type='submit' value='submit'>
           <CreateIcon />
         </button>
       </div>
@@ -45,4 +57,4 @@ const NewTodo: React.FC = () => {
   );
 };
 
-export default NewTodo;
+export default Form;

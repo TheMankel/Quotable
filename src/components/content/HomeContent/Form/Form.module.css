@@ -1,9 +1,11 @@
 .form {
-  width: 40rem;
-  margin: 2rem auto;
+  max-width: 40rem;
   display: flex;
   justify-content: center;
   gap: 1rem;
+  width: 100%;
+  margin: 2rem auto;
+  z-index: 400;
 }
 
 .form label {
