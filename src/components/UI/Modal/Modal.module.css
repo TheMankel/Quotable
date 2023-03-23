@@ -1,0 +1,62 @@
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(var(--bg-secondary-color), 0.1);
+  backdrop-filter: blur(10px);
+  height: 100vh;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.nav h2 {
+  margin: 0;
+}
+
+.nav button {
+  background-color: rgb(var(--main-color));
+  padding: 0.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  aspect-ratio: 1;
+  border: none;
+}
+
+.nav button:hover,
+.nav button:active {
+  background-color: rgba(var(--main-color), 0.75);
+}
+
+.nav button svg {
+  height: 40px;
+  width: 40px;
+  fill: white;
+}
+
+.nav svg {
+  height: 40px;
+  width: 40px;
+  fill: white;
+}
+
+.content {
+  background-color: rgb(var(--bg-primary-color));
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  padding: 2rem;
+}
