@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  background-color: rgb(var(--main-color));
+  padding: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.button:hover,
+.button:active {
+  background-color: rgba(var(--main-color), 0.75);
+}
