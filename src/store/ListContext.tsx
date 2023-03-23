@@ -29,13 +29,10 @@ const ListContextProvider: React.FC<Props> = (props) => {
   };
 
   const handleEditItem = (itemId: string, itemText: string) => {
-    const newListArray = listItems.map((item) => {
-      if (item.id === itemId) item.text = itemText;
-      return item;
-    });
+    const newListArray = listItems.map((item) =>
+      item.id === itemId ? { ...item, text: itemText } : item,
+    );
     setListItems(newListArray);
-
-    console.log(newListArray);
   };
 
   const handleDeleteItem = (itemId: string) => {
