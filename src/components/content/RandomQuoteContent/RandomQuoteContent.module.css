@@ -1,0 +1,7 @@
+.text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  text-align: center;
+}
