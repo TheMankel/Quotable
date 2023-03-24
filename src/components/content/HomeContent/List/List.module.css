@@ -1,5 +1,5 @@
 .wrapper {
-  max-height: 55vh;
+  max-height: 60vh;
   overflow-y: auto;
   background-color: rgb(var(--bg-secondary-color));
   padding: 0 1rem;
@@ -13,4 +13,12 @@
   /* max-width: 40rem; */
   display: flex;
   flex-direction: column;
+}
+
+.text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  text-align: center;
 }

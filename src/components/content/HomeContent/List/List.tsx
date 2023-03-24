@@ -12,6 +12,13 @@ interface Props {
 const List = ({ openHandler, editHandler }: Props) => {
   const listCtx = useContext(ListContext);
 
+  if (!listCtx.items.length)
+    return (
+      <div className={styles.wrapper}>
+        <p className={styles.text}>No quotes added</p>
+      </div>
+    );
+
   return (
     <div className={styles.wrapper}>
       <ul className={styles.list}>
