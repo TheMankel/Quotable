@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useFetchData } from '../hooks/useFetchData';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import Item from '../types/Item';
 
@@ -9,9 +10,13 @@ type ListContextObject = {
   deleteItem: (id: string) => void;
 };
 
+type Quote = { content: string };
+
 interface Props {
   children: React.ReactNode;
 }
+
+const API = 'https://api.quotable.io/quotes/random?limit=5';
 
 export const ListContext = React.createContext<ListContextObject>({
   items: [],
@@ -20,8 +25,10 @@ export const ListContext = React.createContext<ListContextObject>({
   deleteItem: (id: string) => {},
 });
 
-const ListContextProvider: React.FC<Props> = (props) => {
+const ListContextProvider = ({ children }: Props) => {
+  const { data, isLoading, fetchData } = useFetchData(API);
   const [listItems, setListItems] = useLocalStorage<Item[]>('listItems', []);
+  const firstRender = useRef(false);
 
   const handleCreateItem = (itemText: string) => {
     const newItem = new Item(itemText);
@@ -47,10 +54,34 @@ const ListContextProvider: React.FC<Props> = (props) => {
     deleteItem: handleDeleteItem,
   };
 
+  // if (!listItems.length) {
+  //   // console.log(listItems);
+  //   const { data, isLoading } = useFetchData(API);
+
+  //   if (!isLoading)
+  //     (data as Quote[])?.forEach((quote) => {
+  //       // handleCreateItem(quote.content);
+  //       console.log(quote.content);
+  //       handleCreateItem(quote.content);
+  //     });
+  // }
+
+  useEffect(() => {
+    if (isLoading || firstRender.current || listItems.length > 0) return;
+
+    fetchData();
+    firstRender.current = true;
+  }, []);
+
+  useEffect(() => {
+    (data as Quote[])?.forEach((quote) => {
+      console.log(quote.content);
+      handleCreateItem(quote.content);
+    });
+  }, [data]);
+
   return (
-    <ListContext.Provider value={contextValue}>
-      {props?.children}
-    </ListContext.Provider>
+    <ListContext.Provider value={contextValue}>{children}</ListContext.Provider>
   );
 };
 
