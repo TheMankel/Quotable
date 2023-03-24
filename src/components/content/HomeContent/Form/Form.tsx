@@ -44,6 +44,7 @@ const Form = ({ id = '', closeHandler }: Props) => {
           type='text'
           id='text'
           name='item'
+          required
           placeholder='Enter text'
           maxLength={40}
         />
