@@ -1,10 +1,9 @@
-import { useState } from 'react';
 import List from './List/List';
 import Form from './Form/Form';
 import Section from '../../UI/Section/Section';
 import Modal from '../../UI/Modal/Modal';
-import { useEdit } from '../../../hooks/useEdit';
 import Button from '../../UI/Button/Button';
+import { useEdit } from '../../../hooks/useEdit';
 
 const HomeContent = () => {
   const { isModalOpen, handleCloseModal, openModal, handleEdit, editedId } =
@@ -12,17 +11,14 @@ const HomeContent = () => {
 
   return (
     <>
-      {/* <Section id='Form'>
-        <Form />
-      </Section> */}
       <Section id='CreateNewItem'>
-        <Button title='Add New Item' onClickHandler={openModal} />
+        <Button title='Add New Quote' onClickHandler={openModal} />
       </Section>
-      <Section id='ListItem'>
+      <Section id='QuoteItem'>
         <List openHandler={openModal} editHandler={handleEdit} />
       </Section>
       <Modal
-        title='Edit item'
+        title={!editedId ? 'Add New Quote' : 'Edit Quote'}
         isOpen={isModalOpen}
         closeHandler={handleCloseModal}>
         <Form id={editedId} closeHandler={handleCloseModal} />
