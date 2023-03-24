@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import Button from '../Button/Button';
 import Section from '../Section/Section';
 import styles from './NotFound.module.css';
 
@@ -11,7 +12,7 @@ const NotFound = () => {
           Oops! Looks like you followed a bad link
         </p>
         <NavLink to='/' className={styles.link}>
-          <button>Home</button>
+          <Button title='Home' />
         </NavLink>
       </div>
     </Section>
