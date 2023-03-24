@@ -8,8 +8,8 @@ const NavBar = () => {
       title: 'Home',
     },
     {
-      url: '/api',
-      title: 'Api',
+      url: '/random-quote',
+      title: 'Random Quote',
     },
   ];
   return (
