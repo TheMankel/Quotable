@@ -12,14 +12,14 @@ interface Props {
 
 const Modal = ({ isOpen, title, children, closeHandler }: Props) => {
   const backgroundRef = useRef<HTMLDivElement>(null);
-  const closeRef = useRef<HTMLButtonElement>(null);
+  const closeRef = useRef<HTMLDivElement>(null);
 
-  const closeModal = (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
-    const target = e.target as HTMLDivElement | HTMLButtonElement;
+  const closeModal = (e: MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLDivElement;
 
     if (
       target === backgroundRef.current ||
-      target.closest('button') === closeRef.current
+      target.closest('div') === closeRef.current
     ) {
       closeHandler();
     }
@@ -32,9 +32,9 @@ const Modal = ({ isOpen, title, children, closeHandler }: Props) => {
       <div className={styles.content}>
         <div className={styles.nav}>
           <h2>{title}</h2>
-          <button ref={closeRef} type='button' onClick={closeModal}>
+          <div ref={closeRef} className={styles.button} onClick={closeModal}>
             <CloseIcon />
-          </button>
+          </div>
         </div>
         {children}
       </div>

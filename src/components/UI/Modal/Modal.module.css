@@ -23,31 +23,22 @@
   margin: 0;
 }
 
-.nav button {
-  background-color: rgb(var(--main-color));
-  padding: 0.25rem;
-  border-radius: 4px;
+.button {
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  aspect-ratio: 1;
-  border: none;
+  padding: 0.25rem;
 }
 
-.nav button:hover,
-.nav button:active {
-  background-color: rgba(var(--main-color), 0.75);
+.button:hover,
+.button:active {
+  background-color: rgba(var(--main-color), 0.25);
+  padding: 0.25rem;
+  border-radius: 4px;
 }
 
-.nav button svg {
-  height: 40px;
-  width: 40px;
-  fill: white;
-}
-
-.nav svg {
+.button svg {
   height: 40px;
   width: 40px;
   fill: white;
