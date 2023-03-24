@@ -2,7 +2,7 @@ import styles from './Button.module.css';
 
 type Props = {
   title: string;
-  onClickHandler: () => void;
+  onClickHandler?: () => void;
 };
 
 const Button = ({ title, onClickHandler }: Props) => {
