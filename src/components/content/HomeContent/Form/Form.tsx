@@ -28,8 +28,8 @@ const Form = ({ item, closeHandler }: Props) => {
       return;
     }
 
-    if (!item) listCtx.createItem(target.item.value);
-    else listCtx.editItem(item.id, target.item.value);
+    if (!item) listCtx.createItem(target.item.value.trim());
+    else listCtx.editItem(item.id, target.item.value.trim());
 
     target.item.value = '';
     closeHandler();
