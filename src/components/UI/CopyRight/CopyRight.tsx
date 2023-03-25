@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import styles from './CopyRight.module.css';
+import { Wrapper } from './CopyRight.style';
 
 type Props = {
   authors: {
@@ -17,9 +17,9 @@ const CopyRight = ({ authors }: Props) => {
   ));
 
   return (
-    <div className={styles.wrapper}>
+    <Wrapper>
       <p>Copyright © {links}</p>
-    </div>
+    </Wrapper>
   );
 };
 
