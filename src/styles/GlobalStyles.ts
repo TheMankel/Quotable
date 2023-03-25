@@ -10,25 +10,22 @@ const GlobalStyles = createGlobalStyle`
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   height: 100%;
-  background-color: rgb(var(--bg-primary-color));
-
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-
+  
   --color: 35, 35, 35;
-  /* --main-color: rgb(32, 110, 248); */
   --main-color: 32, 110, 248;
-  /* --edit-color: rgb(45, 120, 45); */
   --edit-color: 45, 120, 45;
-  /* --delete-color: rgb(210, 45, 45); */
   --delete-color: 210, 45, 45;
-  /* --bg-primary-color: 36, 36, 36; */
   --bg-primary-color: 242, 242, 242;
   --bg-secondary-color: 255, 255, 255;
+  
   color: rgb(var(--color));
+  background-color: rgb(var(--bg-primary-color));
 }
 
 ::-webkit-scrollbar {

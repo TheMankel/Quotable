@@ -25,5 +25,5 @@ export function useLocalStorage<T>(
     setValue(null as T);
   }, []);
 
-  return [value, setValue, remove] as [T, typeof setValue, typeof remove];
+  return [value, setValue, remove];
 }

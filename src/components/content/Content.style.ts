@@ -5,6 +5,5 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* 100vh - navbar height - footer height*/
-  min-height: calc(100vh - 55px - 55.8px);
+  min-height: calc(100vh - 55px - 56px);
 `;
