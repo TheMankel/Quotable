@@ -1,4 +1,4 @@
-import styles from './Button.module.css';
+import { ButtonElement, Wrapper } from './Button.style';
 
 type Props = {
   title: string;
@@ -7,11 +7,11 @@ type Props = {
 
 const Button = ({ title, onClickHandler }: Props) => {
   return (
-    <div className={styles.wrapper}>
-      <button className={styles.button} type='button' onClick={onClickHandler}>
+    <Wrapper>
+      <ButtonElement type='button' onClick={onClickHandler}>
         {title}
-      </button>
-    </div>
+      </ButtonElement>
+    </Wrapper>
   );
 };
 
