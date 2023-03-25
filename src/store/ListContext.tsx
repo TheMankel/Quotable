@@ -66,7 +66,6 @@ const ListContextProvider = ({ children }: Props) => {
 
   useEffect(() => {
     (data as Quote[])?.forEach((quote) => {
-      console.log(quote.content);
       handleCreateItem(quote.content);
     });
   }, [data]);
