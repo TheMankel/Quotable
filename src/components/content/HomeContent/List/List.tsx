@@ -3,6 +3,7 @@ import { ListContext } from '../../../../store/ListContext';
 import ListItem from '../ListItem/ListItem';
 import Item from '../../../../types/Item';
 import { Info, ListElement, Wrapper } from './List.style';
+import Spinner from '../../../UI/Spinner/Spinner';
 
 interface Props {
   editHandler: (item: Item) => void;
@@ -10,6 +11,13 @@ interface Props {
 
 const List = ({ editHandler }: Props) => {
   const listCtx = useContext(ListContext);
+
+  if (listCtx.isLoading)
+    return (
+      <Wrapper>
+        <Spinner />
+      </Wrapper>
+    );
 
   if (!listCtx.items.length)
     return (

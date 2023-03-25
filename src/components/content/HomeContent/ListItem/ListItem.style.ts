@@ -1,19 +1,17 @@
 import styled from 'styled-components';
 
 export const Item = styled.li`
-  margin: 1rem 0;
-  padding: 1rem 2rem;
+  padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 0 0 0.2rem rgb(var(--main-color)),
-    0 0 0 0.4rem rgb(var(--main-color));
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  background-color: rgb(var(--bg-primary-color));
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0;
 
-  &:hover {
-    box-shadow: 0 0 0 0.2rem rgba(var(--main-color), 0.75),
-      0 0 0 0.4rem rgba(var(--main-color), 0.75);
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
   }
 `;
 
