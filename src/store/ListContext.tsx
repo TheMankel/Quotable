@@ -16,7 +16,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const API = 'https://api.quotable.io/quotes/random?limit=5';
+const API = 'https://api.quotable.io/quotes/random?limit=5&maxLength=40';
 
 export const ListContext = React.createContext<ListContextObject>({
   items: [],

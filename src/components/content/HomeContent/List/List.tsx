@@ -1,15 +1,14 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { ListContext } from '../../../../store/ListContext';
 import ListItem from '../ListItem/ListItem';
 import styles from './List.module.css';
+import Item from '../../../../types/Item';
 
 interface Props {
-  openHandler: () => void;
-  editHandler: (itemId: string) => void;
-  // editHandler: React.Dispatch<React.SetStateAction<string>>;
+  editHandler: (item: Item) => void;
 }
 
-const List = ({ openHandler, editHandler }: Props) => {
+const List = ({ editHandler }: Props) => {
   const listCtx = useContext(ListContext);
 
   if (!listCtx.items.length)
@@ -26,8 +25,8 @@ const List = ({ openHandler, editHandler }: Props) => {
           <ListItem
             key={item.id}
             text={item.text}
-            onDeleteItem={listCtx.deleteItem.bind(null, item.id)}
-            onEditItem={() => editHandler(item.id)}
+            onDeleteItem={() => listCtx.deleteItem(item.id)}
+            onEditItem={() => editHandler(item)}
           />
         ))}
       </ul>

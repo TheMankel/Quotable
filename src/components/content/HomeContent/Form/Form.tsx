@@ -1,15 +1,17 @@
-import React, { useRef, useContext } from 'react';
+import React, { useRef, useContext, useState } from 'react';
 import { ListContext } from '../../../../store/ListContext';
 import CreateIcon from '../../../icons/CreateIcon';
 import styles from './Form.module.css';
+import Item from '../../../../types/Item';
 
 type FormEvent = React.FormEvent<HTMLFormElement>;
 type Props = {
-  id?: string;
+  item?: Item;
   closeHandler: () => void;
 };
 
-const Form = ({ id = '', closeHandler }: Props) => {
+const Form = ({ item, closeHandler }: Props) => {
+  const [inputValue, setInputValue] = useState(item?.text);
   const listCtx = useContext(ListContext);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -26,8 +28,8 @@ const Form = ({ id = '', closeHandler }: Props) => {
       return;
     }
 
-    if (!id) listCtx.createItem(target.item.value);
-    else listCtx.editItem(id, target.item.value);
+    if (!item) listCtx.createItem(target.item.value);
+    else listCtx.editItem(item.id, target.item.value);
 
     target.item.value = '';
     closeHandler();
@@ -47,6 +49,8 @@ const Form = ({ id = '', closeHandler }: Props) => {
           required
           placeholder='Enter text'
           maxLength={40}
+          onChange={(e) => setInputValue(e.target.value)}
+          value={inputValue}
         />
       </div>
       <div className={styles.btnWrapper}>

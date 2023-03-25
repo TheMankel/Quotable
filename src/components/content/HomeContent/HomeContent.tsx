@@ -6,7 +6,7 @@ import Button from '../../UI/Button/Button';
 import { useEdit } from '../../../hooks/useEdit';
 
 const HomeContent = () => {
-  const { isModalOpen, handleCloseModal, openModal, handleEdit, editedId } =
+  const { isModalOpen, handleCloseModal, openModal, handleEdit, editedItem } =
     useEdit();
 
   return (
@@ -15,13 +15,13 @@ const HomeContent = () => {
         <Button title='Add New Quote' onClickHandler={openModal} />
       </Section>
       <Section id='QuoteItem'>
-        <List openHandler={openModal} editHandler={handleEdit} />
+        <List editHandler={handleEdit} />
       </Section>
       <Modal
-        title={!editedId ? 'Add New Quote' : 'Edit Quote'}
+        title={!editedItem ? 'Add New Quote' : 'Edit Quote'}
         isOpen={isModalOpen}
         closeHandler={handleCloseModal}>
-        <Form id={editedId} closeHandler={handleCloseModal} />
+        <Form item={editedItem} closeHandler={handleCloseModal} />
       </Modal>
     </>
   );

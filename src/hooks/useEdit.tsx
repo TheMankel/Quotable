@@ -1,22 +1,23 @@
 import { useCallback, useState } from 'react';
 import { useModal } from './useModal';
+import Item from '../types/Item';
 
 export const useEdit = () => {
   const { isModalOpen, closeModal, openModal } = useModal();
-  const [editedId, setEditedId] = useState<string>();
+  const [editedItem, setEditedItem] = useState<Item>();
 
   const handleCloseModal = useCallback(() => {
-    setEditedId(undefined);
+    setEditedItem(undefined);
     closeModal();
-  }, [setEditedId, closeModal]);
+  }, [setEditedItem, closeModal]);
 
   const handleEdit = useCallback(
-    (itemId: string) => {
+    (item: Item) => {
       openModal();
-      setEditedId(itemId);
+      setEditedItem(item);
     },
-    [openModal, setEditedId],
+    [openModal, setEditedItem],
   );
 
-  return { isModalOpen, handleCloseModal, openModal, handleEdit, editedId };
+  return { isModalOpen, handleCloseModal, openModal, handleEdit, editedItem };
 };
