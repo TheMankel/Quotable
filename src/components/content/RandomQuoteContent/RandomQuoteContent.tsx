@@ -2,7 +2,8 @@ import Section from '../../UI/Section/Section';
 import Button from '../../UI/Button/Button';
 import { useFetchData } from '../../../hooks/useFetchData';
 import { useEffect, useRef } from 'react';
-import { Text } from './RandomQuoteContent.style';
+import { QuoteCard, Text, Wrapper } from './RandomQuoteContent.style';
+import Spinner from '../../UI/Spinner/Spinner';
 
 const API = 'https://api.quotable.io/random';
 
@@ -21,8 +22,12 @@ const RandomQuoteContent = () => {
 
   return (
     <Section id='RandomQuote'>
-      <Button title='Get Random Quote' onClickHandler={fetchData} />
-      <Text>{(data as Quote)?.content}</Text>
+      <Wrapper>
+        <Button title='Get Random Quote' onClickHandler={fetchData} />
+        <QuoteCard>
+          {isLoading ? <Spinner /> : <Text>{(data as Quote)?.content}</Text>}
+        </QuoteCard>
+      </Wrapper>
     </Section>
   );
 };
