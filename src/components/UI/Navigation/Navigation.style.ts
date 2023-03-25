@@ -12,7 +12,9 @@ export const NavList = styled.ul`
 `;
 
 export const Link = styled(NavLink)`
+  padding-bottom: 12px;
+
   &.active {
-    border-bottom: 2px solid var(--link-color);
+    border-bottom: 4px solid rgb(var(--main-color));
   }
 `;

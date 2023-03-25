@@ -5,5 +5,5 @@ export const FooterWrapper = styled.footer`
   justify-content: center;
   align-items: center;
   background-color: rgb(var(--bg-secondary-color));
-  /* padding: 1rem; */
+  border-top: 1px solid rgba(var(--color), 0.12);
 `;

@@ -22,7 +22,4 @@ export const Subtitle = styled.p`
 
 export const Link = styled(NavLink)`
   text-decoration: none;
-  /* &:visited {
-    color: white;
-  } */
 `;

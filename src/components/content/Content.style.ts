@@ -5,6 +5,6 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* 100vh - navbar height - footer height - padding*/
-  min-height: calc(100vh - 62px - 70px);
+  /* 100vh - navbar height - footer height*/
+  min-height: calc(100vh - 55px - 55.8px);
 `;

@@ -15,6 +15,7 @@ export const ButtonElement = styled.button`
   font-size: 1.25rem;
   margin-top: 0.5rem;
   font-weight: 600;
+  color: #ffffff;
 
   &:hover,
   &:active {

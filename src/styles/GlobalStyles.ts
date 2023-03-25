@@ -2,17 +2,9 @@ import { createGlobalStyle } from 'styled-components';
 import 'normalize.css';
 
 const GlobalStyles = createGlobalStyle`
-* {
-  color: #ffffff;
-  /* --main-color: rgb(16, 79, 137); */
-  --main-color: 16, 79, 137;
-  /* --edit-color: rgb(15, 98, 73); */
-  --edit-color: 15, 98, 73;
-  /* --delete-color: rgb(199, 19, 58); */
-  --delete-color: 199, 19, 58;
-  --bg-primary-color: 36, 36, 36;
-  --bg-secondary-color: 48, 48, 48;
-  --link-color: #186dff;
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
 }
 
 :root {
@@ -25,6 +17,18 @@ const GlobalStyles = createGlobalStyle`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --color: 35, 35, 35;
+  /* --main-color: rgb(32, 110, 248); */
+  --main-color: 32, 110, 248;
+  /* --edit-color: rgb(45, 120, 45); */
+  --edit-color: 45, 120, 45;
+  /* --delete-color: rgb(210, 45, 45); */
+  --delete-color: 210, 45, 45;
+  /* --bg-primary-color: 36, 36, 36; */
+  --bg-primary-color: 242, 242, 242;
+  --bg-secondary-color: 255, 255, 255;
+  color: rgb(var(--color));
 }
 
 ::-webkit-scrollbar {
@@ -49,14 +53,26 @@ a {
   text-decoration: none;
   font-size: 1.25rem;
   font-weight: 600;
+  color: rgb(var(--color));
 }
 
 a:visited {
-  color: white;
+  color: rgb(var(--color));
 }
 
 a:hover {
-  color: var(--link-color);
+  color: rgb(var(--main-color));
+}
+
+svg {
+  height: 40px;
+  width: 40px;
+  fill: white;
+
+  @media (max-width: 768px) {
+    height: 32px;
+    width: 32px;
+  }
 }
 `;
 
