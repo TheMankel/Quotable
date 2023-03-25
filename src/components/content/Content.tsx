@@ -1,15 +1,15 @@
 import { Outlet } from 'react-router-dom';
 import Footer from '../UI/Footer/Footer';
 import NavBar from '../UI/NavBar/NavBar';
-import styles from './Content.module.css';
+import { Main } from './Content.style';
 
 const Content = () => {
   return (
     <>
       <NavBar />
-      <main className={styles.main}>
+      <Main>
         <Outlet />
-      </main>
+      </Main>
       <Footer />
     </>
   );
