@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import styles from './Section.module.css';
+import { SectionWrapper } from './Section.style';
 
 type Props = {
   id?: string | undefined;
@@ -7,11 +7,7 @@ type Props = {
 };
 
 const Section = ({ id, children }: Props) => {
-  return (
-    <section className={styles.wrapper} id={id}>
-      {children}
-    </section>
-  );
+  return <SectionWrapper id={id}>{children}</SectionWrapper>;
 };
 
 export default Section;
