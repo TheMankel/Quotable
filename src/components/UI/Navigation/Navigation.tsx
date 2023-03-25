@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavList, Link } from './Navigation.style';
 
 type Props = {
   pagesUrls: {
@@ -13,12 +13,12 @@ const Navigation = ({ pagesUrls }: Props) => {
   const linkElements = pagesUrls.map((page, index) => {
     return (
       <li key={index}>
-        <NavLink to={page?.url}>{page?.title}</NavLink>
+        <Link to={page.url}>{page.title}</Link>
       </li>
     );
   });
 
-  return <>{linkElements}</>;
+  return <NavList>{linkElements}</NavList>;
 };
 
 export default Navigation;
