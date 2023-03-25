@@ -1,5 +1,5 @@
 import Navigation from '../Navigation/Navigation';
-import styles from './NavBar.module.css';
+import { NavWrapper } from './NavBar.style';
 
 const NavBar = () => {
   const pagesUrls = [
@@ -14,11 +14,9 @@ const NavBar = () => {
   ];
   return (
     <header>
-      <nav className={styles.listWrapper}>
-        <ul className={styles.list}>
-          <Navigation pagesUrls={pagesUrls} />
-        </ul>
-      </nav>
+      <NavWrapper>
+        <Navigation pagesUrls={pagesUrls} />
+      </NavWrapper>
     </header>
   );
 };
