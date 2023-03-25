@@ -1,8 +1,8 @@
 import React, { useRef, useContext, useState } from 'react';
 import { ListContext } from '../../../../store/ListContext';
 import CreateIcon from '../../../icons/CreateIcon';
-import styles from './Form.module.css';
 import Item from '../../../../types/Item';
+import { FormElement, InputElement, SubmitButton } from './Form.style';
 
 type FormEvent = React.FormEvent<HTMLFormElement>;
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 };
 
 const Form = ({ item, closeHandler }: Props) => {
-  const [inputValue, setInputValue] = useState(item?.text);
+  const [inputValue, setInputValue] = useState<string>(item?.text || '');
   const listCtx = useContext(ListContext);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -36,13 +36,9 @@ const Form = ({ item, closeHandler }: Props) => {
   };
 
   return (
-    <form
-      id='form'
-      ref={formRef}
-      onSubmit={handleSubmit}
-      className={styles.form}>
-      <div className={styles.inputWrapper}>
-        <input
+    <FormElement id='form' ref={formRef} onSubmit={handleSubmit}>
+      <div className='input'>
+        <InputElement
           type='text'
           id='text'
           name='item'
@@ -53,12 +49,12 @@ const Form = ({ item, closeHandler }: Props) => {
           value={inputValue}
         />
       </div>
-      <div className={styles.btnWrapper}>
-        <button form='form' type='submit' value='submit'>
+      <div>
+        <SubmitButton form='form' type='submit' value='submit'>
           <CreateIcon />
-        </button>
+        </SubmitButton>
       </div>
-    </form>
+    </FormElement>
   );
 };
 
