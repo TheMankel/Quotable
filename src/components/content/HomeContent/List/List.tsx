@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { ListContext } from '../../../../store/ListContext';
 import ListItem from '../ListItem/ListItem';
-import styles from './List.module.css';
 import Item from '../../../../types/Item';
+import { Info, ListElement, Wrapper } from './List.style';
 
 interface Props {
   editHandler: (item: Item) => void;
@@ -13,14 +13,14 @@ const List = ({ editHandler }: Props) => {
 
   if (!listCtx.items.length)
     return (
-      <div className={styles.wrapper}>
-        <p className={styles.text}>No quotes added</p>
-      </div>
+      <Wrapper>
+        <Info>No quotes added</Info>
+      </Wrapper>
     );
 
   return (
-    <div className={styles.wrapper}>
-      <ul className={styles.list}>
+    <Wrapper>
+      <ListElement>
         {listCtx.items.map((item) => (
           <ListItem
             key={item.id}
@@ -29,8 +29,8 @@ const List = ({ editHandler }: Props) => {
             onEditItem={() => editHandler(item)}
           />
         ))}
-      </ul>
-    </div>
+      </ListElement>
+    </Wrapper>
   );
 };
 
