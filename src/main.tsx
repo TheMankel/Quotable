@@ -2,15 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import './index.css';
+// import './index.css';
 import ListContextProvider from './store/ListContext';
+import GlobalStyles from './styles/GlobalStyles';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ListContextProvider>
+    <GlobalStyles />
+    <ListContextProvider>
+      <BrowserRouter>
         <App />
-      </ListContextProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </ListContextProvider>
   </React.StrictMode>,
 );
