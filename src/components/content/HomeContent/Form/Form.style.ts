@@ -5,8 +5,8 @@ export const FormElement = styled.form`
   display: flex;
   justify-content: center;
   gap: 1rem;
-  width: 100%;
-  margin: 2rem auto;
+  padding: 2rem;
+  margin: 0 auto;
   z-index: 400;
 
   div {
@@ -27,14 +27,12 @@ export const InputElement = styled.input`
   font-size: 1.5rem;
   padding: 0.5rem;
   border-radius: 4px;
-  background-color: #f7f5ef;
-  border: none;
-  color: #201d0f;
+  background-color: rgba(var(--bg-primary-color), 0.25);
+  border: 1px solid rgba(var(--color), 0.25);
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(var(--main-color), 0.75),
-      0 0 0 0.4rem rgba(var(--main-color), 0.75);
+    box-shadow: 0 0 0 0.25rem rgba(var(--main-color), 0.75);
   }
 `;
 

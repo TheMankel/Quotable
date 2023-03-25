@@ -45,6 +45,7 @@ const Form = ({ item, closeHandler }: Props) => {
           required
           placeholder='Enter text'
           maxLength={40}
+          autoComplete='off'
           onChange={(e) => setInputValue(e.target.value)}
           value={inputValue}
         />
