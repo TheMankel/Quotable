@@ -8,6 +8,7 @@ type ListContextObject = {
   createItem: (text: string) => void;
   editItem: (id: string, text: string) => void;
   deleteItem: (id: string) => void;
+  isLoading: boolean;
 };
 
 type Quote = { content: string };
@@ -23,6 +24,7 @@ export const ListContext = React.createContext<ListContextObject>({
   createItem: (text: string) => {},
   editItem: (id: string, text: string) => {},
   deleteItem: (id: string) => {},
+  isLoading: false,
 });
 
 const ListContextProvider = ({ children }: Props) => {
@@ -52,19 +54,8 @@ const ListContextProvider = ({ children }: Props) => {
     createItem: handleCreateItem,
     editItem: handleEditItem,
     deleteItem: handleDeleteItem,
+    isLoading: isLoading,
   };
-
-  // if (!listItems.length) {
-  //   // console.log(listItems);
-  //   const { data, isLoading } = useFetchData(API);
-
-  //   if (!isLoading)
-  //     (data as Quote[])?.forEach((quote) => {
-  //       // handleCreateItem(quote.content);
-  //       console.log(quote.content);
-  //       handleCreateItem(quote.content);
-  //     });
-  // }
 
   useEffect(() => {
     if (isLoading || firstRender.current || listItems.length > 0) return;
