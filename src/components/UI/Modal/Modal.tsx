@@ -1,7 +1,7 @@
 import { ReactNode, MouseEvent, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import CloseIcon from '../../icons/CloseIcon';
-import styles from './Modal.module.css';
+import { CloseBtn, Content, NavModal, Overlay } from './Modal.style';
 
 interface Props {
   isOpen: boolean;
@@ -11,14 +11,14 @@ interface Props {
 }
 
 const Modal = ({ isOpen, title, children, closeHandler }: Props) => {
-  const backgroundRef = useRef<HTMLDivElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLDivElement>(null);
 
   const closeModal = (e: MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLDivElement;
 
     if (
-      target === backgroundRef.current ||
+      target === overlayRef.current ||
       target.closest('div') === closeRef.current
     ) {
       closeHandler();
@@ -28,17 +28,17 @@ const Modal = ({ isOpen, title, children, closeHandler }: Props) => {
   if (!isOpen) return null;
 
   return ReactDOM.createPortal(
-    <div ref={backgroundRef} className={styles.overlay} onClick={closeModal}>
-      <div className={styles.content}>
-        <div className={styles.nav}>
+    <Overlay ref={overlayRef} onClick={closeModal}>
+      <Content>
+        <NavModal>
           <h2>{title}</h2>
-          <div ref={closeRef} className={styles.button} onClick={closeModal}>
+          <CloseBtn ref={closeRef} onClick={closeModal}>
             <CloseIcon />
-          </div>
-        </div>
+          </CloseBtn>
+        </NavModal>
         {children}
-      </div>
-    </div>,
+      </Content>
+    </Overlay>,
     document.getElementById('modal') as HTMLElement,
   );
 };

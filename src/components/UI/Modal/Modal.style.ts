@@ -1,4 +1,6 @@
-.overlay {
+import styled from 'styled-components';
+
+export const Overlay = styled.div`
   position: fixed;
   left: 0;
   top: 0;
@@ -10,44 +12,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
+`;
 
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.nav h2 {
-  margin: 0;
-}
-
-.button {
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.25rem;
-}
-
-.button:hover,
-.button:active {
-  background-color: rgba(var(--main-color), 0.25);
-  padding: 0.25rem;
-  border-radius: 4px;
-}
-
-.button svg {
-  height: 40px;
-  width: 40px;
-  fill: white;
-}
-
-.content {
+export const Content = styled.div`
   background-color: rgb(var(--bg-primary-color));
   border-radius: 8px;
   max-width: 500px;
   width: 100%;
   padding: 2rem;
-}
+`;
+
+export const NavModal = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+`;
+
+export const CloseBtn = styled.div`
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem;
+
+  &:hover,
+  &:active {
+    background-color: rgba(var(--main-color), 0.25);
+    padding: 0.25rem;
+    border-radius: 4px;
+  }
+`;
