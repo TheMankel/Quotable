@@ -1,5 +1,5 @@
 import CopyRight from '../CopyRight/CopyRight';
-import styles from './Footer.module.css';
+import { FooterWrapper } from './Footer.style';
 
 const Footer = () => {
   const authors = [
@@ -7,9 +7,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer className={styles.footer}>
+    <FooterWrapper>
       <CopyRight authors={authors} />
-    </footer>
+    </FooterWrapper>
   );
 };
 
