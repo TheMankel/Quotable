@@ -1,6 +1,12 @@
 import DeleteIcon from '../../../icons/DeleteIcon';
 import EditIcon from '../../../icons/EditIcon';
-import styles from './ListItem.module.css';
+import {
+  Actions,
+  DeleteButton,
+  EditButton,
+  Item,
+  ItemText,
+} from './ListItem.style';
 
 type Props = {
   text: string;
@@ -10,17 +16,17 @@ type Props = {
 
 const ListItem = (props: Props) => {
   return (
-    <li className={styles.item}>
-      <p className={styles.text}>{props.text}</p>
-      <div className={styles.actions}>
-        <button className={styles.edit} onClick={props.onEditItem}>
+    <Item>
+      <ItemText>{props.text}</ItemText>
+      <Actions>
+        <EditButton onClick={props.onEditItem}>
           <EditIcon />
-        </button>
-        <button className={styles.delete} onClick={props.onDeleteItem}>
+        </EditButton>
+        <DeleteButton onClick={props.onDeleteItem}>
           <DeleteIcon />
-        </button>
-      </div>
-    </li>
+        </DeleteButton>
+      </Actions>
+    </Item>
   );
 };
 
