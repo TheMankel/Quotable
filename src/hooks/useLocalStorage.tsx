@@ -17,6 +17,7 @@ export function useLocalStorage<T>(
       localStorage.removeItem(key);
       return;
     }
+
     localStorage.setItem(key, JSON.stringify(value));
   }, [key, value, localStorage]);
 
