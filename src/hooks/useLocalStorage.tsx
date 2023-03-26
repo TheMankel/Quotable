@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function useLocalStorage<T>(
   key: string,
@@ -13,17 +13,8 @@ export function useLocalStorage<T>(
   });
 
   useEffect(() => {
-    if (value === null) {
-      localStorage.removeItem(key);
-      return;
-    }
-
     localStorage.setItem(key, JSON.stringify(value));
   }, [key, value, localStorage]);
 
-  const remove = useCallback(() => {
-    setValue(null as T);
-  }, []);
-
-  return [value, setValue, remove];
+  return [value, setValue] as [T, typeof setValue];
 }
