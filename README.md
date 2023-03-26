@@ -4,7 +4,7 @@ Simple Vite React TypeScript CRUD app with free API (https://github.com/lukePeav
 
 ## How it works
 
-- If the list of quotes is empty when the page is loaded, it fetches five random quotes from the API.
+- If the list of quotes is empty when the page is loaded, it fetches five random quotes from the API
 - Handles CRUD operations (user can add quotes to a list, read the list of quotes, edit existing quotes, delete quotes)
 - Subpage that allows the user to fetch and display a random quote
 
